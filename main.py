@@ -1,9 +1,6 @@
 from nato_dictionary import nato_alphabet
 
-user_input = input("Enter a phrase: ")
-nato_phrase = []
+user_input = input("Enter a phrase: ").lower()
 
-for letter in user_input:
-    nato_phrase.append(nato_alphabet[letter])
-
+nato_phrase = [nato_alphabet[letter] for letter in user_input]
 print(nato_phrase)
