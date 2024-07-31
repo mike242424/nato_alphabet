@@ -1,6 +1,10 @@
-from nato_dictionary import nato_alphabet
+import pandas
 
-user_input = input("Enter a phrase: ").lower()
+user_input = input("Enter a phrase: ").upper()
 
-nato_phrase = [nato_alphabet[letter] for letter in user_input]
-print(nato_phrase)
+data = pandas.read_csv("nato_phonetic_alphabet.csv")
+
+result = {row.letter: row for (index, row) in data.iterrows()}
+
+my_list = [result[letter].code for letter in user_input]
+print(my_list)
